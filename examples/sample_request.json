@@ -1,0 +1,15 @@
+
+{
+  "payload_mass_kg": 5000.0,
+  "flight_number": 85,
+  "launch_site": "CCAFS SLC 40",
+  "orbit": "LEO",
+  "booster_version": "v1.2",
+  "reused_count": 1,
+  "cores": 1,
+  "gridfins": 1,
+  "legs": 1,
+  "block": 5,
+  "launch_year": 2020,
+  "launch_month": 6
+}
