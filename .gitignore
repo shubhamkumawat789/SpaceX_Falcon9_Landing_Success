@@ -1,0 +1,24 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.dist/
+.venv/
+venv/
+.env
+.env.*
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.cache/
+# Data
+data/*.csv
+data/*.parquet
+data/*.xlsx
+# Models
+models/
+# OS
+.DS_Store
