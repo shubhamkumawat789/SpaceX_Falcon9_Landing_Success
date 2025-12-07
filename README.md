@@ -1,5 +1,5 @@
 
-# SpaceX Falcon 9 Landing — Beginner-Friendly Production Template
+# SpaceX Falcon 9 Landing
 
 A clean template to turn your Jupyter notebook into a real-world project.  
 You get: reproducible training, a saved model, a simple REST API for predictions, and tests.
@@ -69,20 +69,3 @@ spacex-landing-starter/
 └─ README.md
 ```
 
-## 4) Config-driven training
-
-Edit `configs/config.yaml` to point at your data, choose the model, and tweak parameters.
-
-## 5) Notes for beginners
-
-- Start with the defaults. Get a green end-to-end run first.
-- Then iterate: feature selection, model choice (LogisticRegression, RandomForest, XGBoost if you add it), and thresholds.
-- Focus on **ROC-AUC** and **F1** (class imbalance is common).
-- Keep the notebook for **EDA only**; production code lives in `src/`.
-
-## 6) Next steps (optional, when you're ready)
-
-- Dockerize and deploy (Cloud Run/Render/Fly).
-- Add experiment tracking (MLflow).
-- Schedule batch scoring with cron/Prefect.
-- Add drift/performance monitoring.
