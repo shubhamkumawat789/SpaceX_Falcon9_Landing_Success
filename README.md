@@ -51,119 +51,40 @@ To build a machine learning model that can predict if the Falcon 9's first stage
 
 
 ## 📊 Process Breakdown
-1. Data Collection
-From SpaceX API: Launch details, rocket info, payload data, core data, launchpad info.
+### Step 1. Data Collection
+- **From SpaceX API:** Launch details, rocket info, payload data, core data, launchpad info.
+- **From Wikipedia:** Scraped Falcon 9 and Falcon Heavy launch history tables.
 
-From Wikipedia: Scraped Falcon 9 and Falcon Heavy launch history tables.
+### Step 2. Data Wrangling & Cleaning
+- Extracted nested JSON data from API responses.
+- Handled missing values (e.g., filled PayloadMass with mean, LandingPad with mode).
+- Filtered dataset to only include Falcon 9 launches (excluded Falcon 1).
+- Created a new Class column for landing success/failure.
 
-2. Data Wrangling & Cleaning
-Extracted nested JSON data from API responses.
+### Step 3. Exploratory Data Analysis (EDA)
+- **SQL Analysis:** Queried launch data to find patterns (success rates, payload mass, launch sites).
+- **Visualizations:** Examined distributions, correlations, and trends in launch data.
 
-Handled missing values (e.g., filled PayloadMass with mean, LandingPad with mode).
-
-Filtered dataset to only include Falcon 9 launches (excluded Falcon 1).
-
-Created a new Class column for landing success/failure.
-
-3. Exploratory Data Analysis (EDA)
-SQL Analysis: Queried launch data to find patterns (success rates, payload mass, launch sites).
-
-Visualizations: Examined distributions, correlations, and trends in launch data.
-
-4. Feature Engineering
+### step 4. Feature Engineering
 Extracted and transformed features like:
+- BoosterVersion
+- Orbit type
+- LaunchSite
+- PayloadMass
+- Flights (number of previous flights)
+- ReusedCount
+- Geographic coordinates (Longitude, Latitude)
 
-BoosterVersion
+### step 5. Data Storage
+- dataset_part_1.csv – Initial cleaned dataset
+- dataset_part_2.csv – Dataset with Class label added
+- dataset_part_3.csv - A cleaned and feature-engineered dataset ready for machine learning
+- spacex_web_scraped.csv – Wikipedia scraped data
+- my_data1.db – SQLite database with launch records
 
-Orbit type
-
-LaunchSite
-
-PayloadMass
-
-Flights (number of previous flights)
-
-ReusedCount
-
-Geographic coordinates (Longitude, Latitude)
-
-5. Data Storage
-Saved cleaned data to CSV (dataset_part_1.csv, dataset_part_2.csv).
-
-Loaded data into SQLite database for querying.
-
-📈 In-Depth Analysis Steps
-✅ Step 1: API Data Extraction
-Created helper functions to fetch:
-
-Booster version
-
-Launch site details (name, lat/long)
-
-Payload data (mass, orbit)
-
-Core data (reuse count, landing outcome)
-
-✅ Step 2: Data Filtering & Transformation
-Removed launches with multiple payloads/cores.
-
-Converted date columns to proper datetime format.
-
-Filtered to dates before November 13, 2020.
-
-✅ Step 3: Handling Missing Data
-PayloadMass: Replaced NaN with column mean.
-
-LandingPad: Filled NaN with mode (most frequent value).
-
-✅ Step 4: Label Creation
-Landing outcomes categorized as:
-
-Good outcomes: True ASDS, True RTLS, True Ocean
-
-Bad outcomes: None None, False Ocean, False RTLS, False ASDS, None ASDS
-
-Created binary Class column (1 for success, 0 for failure).
-
-✅ Step 5: SQL-Based EDA
-Performed queries to find:
-
-Unique launch sites
-
-Total payload mass for NASA
-
-First successful ground pad landing
-
-Success/failure counts
-
-And more...
-
-✅ Step 6: Data Export
 Final dataset saved for machine learning modeling.
 
-🚀 Next Steps (Implied)
-This notebook sets up the data for:
-
-Feature selection for the ML model
-
-Train/test split
-
-Model training (likely classification algorithms)
-
-Model evaluation and prediction
-
-Deployment of the landing predictor
-
-📁 Output Files
-dataset_part_1.csv – Initial cleaned dataset
-
-dataset_part_2.csv – Dataset with Class label added
-
-spacex_web_scraped.csv – Wikipedia scraped data
-
-my_data1.db – SQLite database with launch records
-
-👨‍💻 Beginner-Friendly Notes
+## 👨‍💻 Beginner-Friendly Notes
 This is a complete data pipeline project – from raw data to ML-ready dataset.
 
 Great example of real-world data engineering: APIs, web scraping, cleaning, SQL, visualization.
@@ -171,8 +92,8 @@ Great example of real-world data engineering: APIs, web scraping, cleaning, SQL,
 The Class column is what we're trying to predict – everything else is a feature.
 
 SQL queries help us ask business questions before modeling.
-🔧 Technologies & Libraries Used
-text
+
+## 🔧 Technologies & Libraries Used
 - Python
 - Pandas & NumPy (data manipulation)
 - Requests (API calls)
