@@ -138,7 +138,7 @@ ROC curve shows strong performance above random chance line
 ### Step 5. Final Model Comparison
 All models tested on test set:
 
-- Decision Tree: 94.4% (best but may be overfitting
+- Decision Tree: 94.4% (best but may be overfitting)
 - XGBoost: 83.3%
 - Logistic Regression: 83.3%
 - KNN: 66.7%
