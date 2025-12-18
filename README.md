@@ -142,20 +142,10 @@ All models tested on test set:
 - Logistic Regression: 83.3%
 - KNN: 66.7%
 
-
 ### Step 6. Model Persistence
 The tuned XGBoost model and StandardScaler are saved using pickle:
 - best_model.pkl: Trained XGBoost mode
 - scaler.pkl: Fitted StandardScaler for future data preprocessing
-
-## 👨‍💻 Beginner-Friendly Notes
-This is a complete data pipeline project – from raw data to ML-ready dataset.
-
-Great example of real-world data engineering: APIs, web scraping, cleaning, SQL, visualization.
-
-The Class column is what we're trying to predict – everything else is a feature.
-
-SQL queries help us ask business questions before modeling.
 
 ## 🔧 Technologies & Libraries Used
 - Python
@@ -165,6 +155,15 @@ SQL queries help us ask business questions before modeling.
 - SQLite (database for SQL queries)
 - Matplotlib & Seaborn (visualization)
 - Jupyter Notebook (interactive analysis)
+- 
+## 👨‍💻 Beginner-Friendly Notes
+This is a complete data pipeline project – from raw data to ML-ready dataset.
+
+Great example of real-world data engineering: APIs, web scraping, cleaning, SQL, visualization.
+
+The Class column is what we're trying to predict – everything else is a feature.
+
+SQL queries help us ask business questions before modeling.
 
 ## Project Structure
 
