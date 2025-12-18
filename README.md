@@ -1,6 +1,5 @@
-
-## SpaceX Falcon 9 First Stage Landing Prediction
-### 📌 Project Overview
+# SpaceX Falcon 9 First Stage Landing Prediction
+## 📌 Project Overview
 This project aims to predict whether the Falcon 9 rocket's first stage will land successfully after launch. Using data from SpaceX's API and Wikipedia, we analyze historical launch data to build a classification model that can determine landing outcomes.
 
 ## 🎯 Objective
@@ -102,7 +101,7 @@ SQL queries help us ask business questions before modeling.
 - Matplotlib & Seaborn (visualization)
 - Jupyter Notebook (interactive analysis)
 
-## 3) Project layout
+## Project Structure
 
 ```
 📦 SpaceX-Falcon-9-Landing-Prediction
