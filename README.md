@@ -1,66 +1,56 @@
 
-##SpaceX Falcon 9 First Stage Landing Prediction
-###📌 Project Overview
+## SpaceX Falcon 9 First Stage Landing Prediction
+### 📌 Project Overview
 This project aims to predict whether the Falcon 9 rocket's first stage will land successfully after launch. Using data from SpaceX's API and Wikipedia, we analyze historical launch data to build a classification model that can determine landing outcomes.
 
-###🎯 Objective
+## 🎯 Objective
 To build a machine learning model that can predict if the Falcon 9's first stage will land successfully based on features like:
 
-FEATURE DESCRIPTIONS
+### FEATURE DESCRIPTIONS
 
-+------------------+--------------------------------------------------------------+
 | Feature Name | Description |
-+------------------+--------------------------------------------------------------+
-| LaunchSite | Location where the rocket was launched |
-| | (e.g., CCAFS SLC 40, KSC LC 39A, VAFB SLC 4E) |
-+------------------+--------------------------------------------------------------+
-| Orbit | Destination orbit of the payload |
-| | (e.g., LEO, GTO, ISS, PO, SSO) |
-+------------------+--------------------------------------------------------------+
+|--------------|-------------|
+| LaunchSite | Location where the rocket was launched (e.g., CCAFS SLC 40, KSC LC 39A, VAFB SLC 4E) |
+| Orbit | Destination orbit of the payload (e.g., LEO, GTO, ISS, PO, SSO) |
 | BoosterVersion | Specific model or variant of the Falcon 9 booster |
-+------------------+--------------------------------------------------------------+
-| ReuseHistory | Indicates whether the booster was reused |
-| | from previous flights |
-+------------------+--------------------------------------------------------------+
+| ReuseHistory | Indicates whether the booster was reused from previous flights |
 | FlightNumber | Sequential number of the launch mission |
-+------------------+--------------------------------------------------------------+
 | PayloadMass | Mass of the payload carried by the rocket (in kg) |
-+------------------+--------------------------------------------------------------+
-| Flights | Number of times the booster has flown before |
-| | the current mission |
-+------------------+--------------------------------------------------------------+
+| Flights | Number of times the booster has flown before the current mission |
 | Block | Booster block version (e.g., Block 1, Block 5) |
-+------------------+--------------------------------------------------------------+
-| GridFins | Whether grid fins were used for steering |
-| | during descent (1 = Yes, 0 = No) |
-+------------------+--------------------------------------------------------------+
-| Legs | Whether landing legs were deployed |
-| | (1 = Yes, 0 = No) |
-+------------------+--------------------------------------------------------------+
+| GridFins | Whether grid fins were used for steering during descent (1 = Yes, 0 = No) |
+| Legs | Whether landing legs were deployed (1 = Yes, 0 = No) |
 
-🔑 Key Points
-Target Variable: Class (1 = successful landing, 0 = failed landing)
+### TARGET VARIABLE
 
-Data Sources:
+| Feature | Description |
+|---------|-------------|
+| Class | Landing outcome of the booster (1 = Successful landing, 0 = Failed landing) |
 
-SpaceX REST API (via requests)
+### ADDITIONAL FEATURES IN DATASET
 
-Wikipedia web scraping (using BeautifulSoup)
+| Feature Name | Description |
+|--------------|-------------|
+| Date | Launch date of the mission |
+| ReusedCount | Number of times the booster has been reused |
+| Serial | Unique serial number of the booster |
+| Longitude | Longitude coordinate of the launch site |
+| Latitude | Latitude coordinate of the launch site |
+| Outcome | Raw textual description of the landing outcome |
+| LandingPad | Type of landing pad used (ground pad or drone ship) |
 
-Tools Used: Python, Jupyter Notebook, Pandas, SQLite, Matplotlib/Seaborn
+### FEATURE IMPORTANCE 
 
-Problem Type: Binary classification
+| Feature | Reason for Importance |
+|---------|-----------------------|
+| PayloadMass | Heavy payloads reduce fuel margin |
+| BoosterVersion | Newer versions have improved landing technology |
+| ReuseHistory | Indicates reliability from previous missions |
+| Orbit | Different orbits need different landing strategies |
+| GridFins & Legs | Essential for controlled descent and landing |
 
-🔧 Technologies & Libraries Used
-text
-- Python
-- Pandas & NumPy (data manipulation)
-- Requests (API calls)
-- BeautifulSoup (web scraping)
-- SQLite (database for SQL queries)
-- Matplotlib & Seaborn (visualization)
-- Jupyter Notebook (interactive analysis)
-📊 Process Breakdown
+
+## 📊 Process Breakdown
 1. Data Collection
 From SpaceX API: Launch details, rocket info, payload data, core data, launchpad info.
 
@@ -181,7 +171,15 @@ Great example of real-world data engineering: APIs, web scraping, cleaning, SQL,
 The Class column is what we're trying to predict – everything else is a feature.
 
 SQL queries help us ask business questions before modeling.
-
+🔧 Technologies & Libraries Used
+text
+- Python
+- Pandas & NumPy (data manipulation)
+- Requests (API calls)
+- BeautifulSoup (web scraping)
+- SQLite (database for SQL queries)
+- Matplotlib & Seaborn (visualization)
+- Jupyter Notebook (interactive analysis)
 
 ## 3) Project layout
 
