@@ -105,19 +105,30 @@ SQL queries help us ask business questions before modeling.
 ## 3) Project layout
 
 ```
-spacex-landing-starter/
-├─ configs/config.yaml
-├─ data/                       # your CSV goes here (gitignored)
-├─ examples/sample_request.json
-├─ src/spacex_landing/
-│  ├─ data.py                  # load CSV, basic checks
-│  ├─ features.py              # feature preprocessing
-│  ├─ train.py                 # train & save model
-│  ├─ inference.py             # load & predict
-│  └─ serving/
-│     ├─ schemas.py            # pydantic request/response
-│     └─ api.py                # FastAPI app
-├─ tests/test_smoke.py         # very simple tests
-└─ README.md
+📦 SpaceX-Falcon-9-Landing-Prediction
+├── 📂 Configs
+│   └── requirements.txt          # Project dependencies
+│
+├── 📂 datasets
+│   ├── dataset_part_1.csv         # Raw dataset (initial data)
+│   ├── dataset_part_2.csv         # Cleaned & processed dataset
+│   ├── dataset_part_3.csv         # Final dataset used for modeling
+│   ├── spacex_web_scraped.csv     # Data collected via web scraping
+│   └── my_data1.db                # SQLite database file
+│
+├── 📂 examples
+│   └── sample_request.json        # Sample input for API / testing
+│
+├── 📂 notebooks
+│   ├── SpaceX Falcon 9 first stage Landing.ipynb
+│   └── SpaceX_landing_Success_prediction.ipynb
+│
+├── 📂 src
+│   └── app.py                     # Streamlit web application
+│
+├── .gitignore                     # Files & folders ignored by Git
+├── Dockerfile                     # Docker configuration
+└── README.md                      # Project documentation
+
 ```
 
