@@ -1,4 +1,4 @@
-# SpaceX Falcon 9 First Stage Landing Prediction
+# 🚀 SpaceX Falcon 9 First Stage Landing Prediction
 ## 📌 Project Overview
 This project aims to predict whether the Falcon 9 rocket's first stage will land successfully after launch. Using data from SpaceX's API and Wikipedia, we analyze historical launch data to build a classification model that can determine landing outcomes.
 
@@ -49,7 +49,7 @@ To build a machine learning model that can predict if the Falcon 9's first stage
 | GridFins & Legs | Essential for controlled descent and landing |
 
 
-## 📊 Process Breakdown (SpaceX Falcon 9 first stage Landing.ipynb - SpaceX Landing Prediction notebook)
+## 📊 Process Breakdown (SpaceX Falcon 9 first stage Landing.ipynb - Final notebook saved for machine learning modeling)
 
 ### Step 1. Data Collection
 - **From SpaceX API:** Launch details, rocket info, payload data, core data, launchpad info.
