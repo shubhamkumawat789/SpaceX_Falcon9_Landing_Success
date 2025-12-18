@@ -83,6 +83,69 @@ Extracted and transformed features like:
 
 Final dataset saved for machine learning modeling.
 
+### Step 1. Data Loading 
+**Loads pre-processed datasets:** dataset_part_3.csv (features) and dataset_part_2.csv (target variable Class)
+
+### Step 2. Data Preprocessing
+**StandardScaler:** Normalizes features to have mean=0 and variance=1
+
+**Train-Test Split:** 80-20 split with random state for reproducibility
+
+### Step 3. Model Training & Selection
+Four classification models are trained:
+- Logistic Regression (with increased max_iter)
+- K-Nearest Neighbors (K=5)
+- Decision Tree Classifier (random_state=42)
+- XGBoost Classifier (with eval_metric='logloss')
+
+Cross-Validation Evaluation
+Models are evaluated using 5-fold cross-validation:
+
+- Logistic Regression: 83.5% ± 6.5%
+- KNN: 66.7% ± 2.6%
+- Decision Tree: 80.6% ± 11.4%
+- XGBoost: 80.5% ± 9.6%
+
+Hyperparameter Tuning (GridSearchCV)
+- XGBoost is optimized with GridSearchCV:
+- Parameters tested: n_estimators [50, 100, 200], max_depth [3, 5, 7], learning_rate [0.1, 0.01]
+- Best parameters: {'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100}
+
+**Best CV accuracy: 86.1%**
+
+### Step 4. Model Evaluation
+Best Model Performance (Tuned XGBoost)
+Test Accuracy: 83.3%
+
+**Confusion Matrix:**
+[[ 3  3]  # 3 correct failures, 3 failures predicted as success
+ [ 0 12]] # 0 successes predicted as failure, 12 correct successes
+ 
+**Classification Report:**
+
+- Failure class: 100% precision, 50% recall
+- Success class: 80% precision, 100% recall
+
+Model is better at predicting successes than failures
+
+**ROC Curve Analysis**
+AUC Score: 0.89 (good discriminatory power)
+ROC curve shows strong performance above random chance line
+
+### Step 5. Final Model Comparison
+All models tested on test set:
+
+- Decision Tree: 94.4% (best but may be overfitting
+- XGBoost: 83.3%
+- Logistic Regression: 83.3%
+- KNN: 66.7%
+
+
+### Step 6. Model Persistence
+The tuned XGBoost model and StandardScaler are saved using pickle:
+- best_model.pkl: Trained XGBoost mode
+- scaler.pkl: Fitted StandardScaler for future data preprocessing
+
 ## 👨‍💻 Beginner-Friendly Notes
 This is a complete data pipeline project – from raw data to ML-ready dataset.
 
